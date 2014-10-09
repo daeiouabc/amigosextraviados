@@ -1,0 +1,22 @@
+.app-bar .logo
+{
+line-height: 73px;
+}
+
+.cab0
+{
+background:#c9c9c9;    
+
+}
+
+@media all and (min-width: 990px) {
+.app-bar-container
+{
+height: 80px;        
+}
+.navdrawer-container ul li a {
+padding: 8px 20px;
+color:#535353;
+}
+    
+}
