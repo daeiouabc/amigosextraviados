@@ -11,4 +11,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include(routerUsuarioCRUD.urls)),
 
+    #urls temporales para el login y el logout
+    url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
+
+
 )

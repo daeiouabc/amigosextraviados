@@ -1,16 +1,11 @@
 from rest_framework import permissions
 
 
-class IsOwner(permissions.BasePermission):
+class IsSelf(permissions.BasePermission):
     """
-    Custom permission to only allow owners of an object to edit it.
+    Permiso customizado que solo permite que un usuario solo pueda ser mostado, editado o eliminado por el mismo
     """
 
     def has_object_permission(self, request, view, obj):
-        # Read permissions are allowed to any request,
-        # so we'll always allow GET, HEAD or OPTIONS requests.
-        #if request.method in permissions.SAFE_METHODS:
-        #    return True
-
-        # Write permissions are only allowed to the owner of the snippet.
-        return obj is not None or obj.id == request.user
+        """si el usuario que intenta acceder es el mismo"""
+        return obj.id == request.user.id

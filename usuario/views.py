@@ -1,7 +1,8 @@
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
 from django.contrib.auth import get_user_model
-from commons.permissions import IsOwner
+from commons.permissions import IsSelf
 from .serializers import UsuarioSerializer
 
 #para sacar la clase que se usa para la autenticacion
@@ -13,4 +14,4 @@ class Usuario(viewsets.ModelViewSet):
     model = Usuario
     serializer_class = UsuarioSerializer
     queryset = Usuario.objects.order_by(Usuario.USERNAME_FIELD)
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwner)
+    permission_classes = (IsAuthenticated, IsSelf)
