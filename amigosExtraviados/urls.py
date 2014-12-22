@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from usuario.urls import routerUsuarioCRUD
+from usuario.urls import routerUsuarioRUD, urlCrearUsuario
 
 urlpatterns = patterns('',
     # Examples:
@@ -9,7 +9,10 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/', include(routerUsuarioCRUD.urls)),
+    url(r'^api/crear/', include(urlCrearUsuario)),
+    url(r'^api/', include(routerUsuarioRUD.urls)),
+
+
 
     #urls temporales para el login y el logout
     url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
