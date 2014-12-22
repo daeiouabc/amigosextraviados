@@ -22,9 +22,9 @@ SECRET_KEY = 'kkx7tcw+5pci#y@93blft06%=qd)&7pu93qb(1sm*!@66bc6(p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

@@ -3,7 +3,7 @@ from rest_framework.routers import Route, SimpleRouter
 from . import views
 
 
-class CustomOwnerUsuarioRouter(SimpleRouter):
+class CustomOwnerRouter(SimpleRouter):
     """
     Rutas para, obtener, actualizar y destruir un usuario.
     Se omite listar los usuarios
@@ -20,33 +20,10 @@ class CustomOwnerUsuarioRouter(SimpleRouter):
             },
             name='{basename}-detail',
             initkwargs={'suffix': 'Instance'}
-        ),
+        )
     ]
 
+routerUsuarioRUD = CustomOwnerRouter()
+routerUsuarioRUD.register(r'edit', views.Usuario)
 
-class CustomCreateUsuarioRouter(SimpleRouter):
-    """
-    Rutas para, obtener, actualizar y destruir un usuario.
-    Se omite listar los usuarios
-    """
-    routes = [
-        # Detail route.
-        Route(
-            url=r'^{prefix}/{lookup}{trailing_slash}$',
-            mapping={
-                'post': 'create'
-            },
-            name='{basename}-detail',
-            initkwargs={'suffix': 'Instance'}
-        ),
-    ]
-
-
-routerUsuarioRUD = CustomOwnerUsuarioRouter()
-routerUsuarioRUD.register(r'usuario', views.Usuario)
-
-
-urlCrearUsuario = patterns('',url(r'usuario', views.CrearUsuario.as_view({'post': 'create'})),)
-
-#routerCreateUsuario = CustomCreateUsuarioRouter()
-#routerCreateUsuario.register(r'usuario', views.CrearUsuario)
+routerUsuarioCreate = patterns('', url(r'', views.CrearUsuario.as_view({'post': 'create'})), )

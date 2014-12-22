@@ -6,6 +6,7 @@ from django.contrib.auth import get_user_model
 
 from commons.permissions import IsSelf
 from .serializers import UsuarioSerializer
+#from .models import Usuario
 
 
 """para sacar la clase que se usa para la autenticacion"""
@@ -13,7 +14,7 @@ Usuario = get_user_model()
 
 
 class Usuario(viewsets.ModelViewSet):
-    """Usuario, clase con los metodos y rutas para el CRUD"""
+    """Usuario, clase con los metodos y rutas para el RUD"""
     model = Usuario
     serializer_class = UsuarioSerializer
     queryset = Usuario.objects.all()  # optimizar

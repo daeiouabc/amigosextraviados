@@ -13,12 +13,11 @@ class UsuarioSerializer(serializers.ModelSerializer):
         read_only_fields = ('id', )
         #write_only_fields = ('password')#pending deprecation
         extra_kwargs = {'password': {'write_only': True}}
+        #password = serializers.Field(source='password', required=False)
 
     #falta hacer que se pueda modificar el password
-    """
     def update(self, instance, validated_data):
-        #instance: usuario, validated_data: nuevos valores
-
+    #instance: usuario, validated_data: nuevos valores
         print("update")
         print(instance.password)
         user = super(UsuarioSerializer, self).update(instance, validated_data)
@@ -26,4 +25,3 @@ class UsuarioSerializer(serializers.ModelSerializer):
         #    print("password")
         #    user.set_password(attrs['password'])
         return user
-    """
