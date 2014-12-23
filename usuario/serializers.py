@@ -4,7 +4,7 @@ from .models import Usuario
 
 
 class UsuarioSerializer(serializers.ModelSerializer):
-    """docstring for UsuarioSerializer, Clase para el CRUD"""
+    """UsuarioSerializer, Clase para el CRUD"""
     #password = serializers.CharField(required=False, write_only=True)
 
     class Meta:
@@ -25,3 +25,12 @@ class UsuarioSerializer(serializers.ModelSerializer):
         #    print("password")
         #    user.set_password(attrs['password'])
         return user
+
+
+class UsuarioPublicoSerializer(serializers.ModelSerializer):
+    """Usuario Publico Serializer, Clase para mostrar ls informacion del usuario al publico"""
+
+    class Meta:
+        model = Usuario
+        fields = ('id', 'is_active', 'nombre', 'apellido')
+        read_only_fields = ('id', 'is_active', 'nombre', 'apellido')

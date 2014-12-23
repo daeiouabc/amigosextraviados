@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, url
 from rest_framework.routers import Route, SimpleRouter
+
 from . import views
 
 
@@ -23,7 +24,12 @@ class CustomOwnerRouter(SimpleRouter):
         )
     ]
 
+#rutas para Leer, Actualizar y Eliminar
 routerUsuarioRUD = CustomOwnerRouter()
-routerUsuarioRUD.register(r'edit', views.Usuario)
+routerUsuarioRUD.register(r'edit', views.UsuarioViewSet)
 
+#ruta para crear
 routerUsuarioCreate = patterns('', url(r'', views.CrearUsuario.as_view({'post': 'create'})), )
+
+#ruta publica
+routerUsuarioPublico = patterns('', url(r'', views.UsuarioPublico.as_view()), )
