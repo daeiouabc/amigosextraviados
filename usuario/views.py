@@ -33,7 +33,7 @@ from rest_framework.response import Response
 
 
 class UsuarioPublico(APIView):
-    """Usuario, clase con los metodos y rutas para el RUD"""
+    """Usuario, clase con los metodos y rutas para mostrar los datos publicos del usuario"""
     permission_classes = (IsAuthenticated, )
 
     def get(self, request, pk):

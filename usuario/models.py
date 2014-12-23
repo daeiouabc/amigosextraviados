@@ -48,6 +48,11 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return u'%s - %s' % (self.id, self.nombre)
 
+    def update(self, *args, **kwargs):
+        if kwargs['make_passwork']:
+            self.set_password(self.password)
+        super(Usuario, self).save()
+
     def save(self, *args, **kwargs):
         if not self.is_superuser:
             self.set_password(self.password)

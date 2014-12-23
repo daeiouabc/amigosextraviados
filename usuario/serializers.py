@@ -5,7 +5,7 @@ from .models import Usuario
 
 class UsuarioSerializer(serializers.ModelSerializer):
     """UsuarioSerializer, Clase para el CRUD"""
-    #password = serializers.CharField(required=False, write_only=True)
+    password = serializers.CharField(required=False, allow_blank=True, write_only=True)
 
     class Meta:
         model = Usuario
@@ -15,16 +15,21 @@ class UsuarioSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
         #password = serializers.Field(source='password', required=False)
 
-    #falta hacer que se pueda modificar el password
     def update(self, instance, validated_data):
-    #instance: usuario, validated_data: nuevos valores
-        print("update")
-        print(instance.password)
-        user = super(UsuarioSerializer, self).update(instance, validated_data)
-        #if instance.password:
-        #    print("password")
-        #    user.set_password(attrs['password'])
-        return user
+        make_passwork = False
+        instance.nombre = validated_data.get('nombre', instance.nombre)
+        instance.apellido = validated_data.get('apellido', instance.apellido)
+        instance.direccion = validated_data.get('direccion', instance.direccion)
+        instance.telefono = validated_data.get('telefono', instance.telefono)
+        try:
+            if validated_data.get('password', None):
+                instance.password = validated_data.get('password', None)
+                make_passwork = True
+        except KeyError:
+            print("No found")
+
+        instance.update(make_passwork=make_passwork)
+        return instance
 
 
 class UsuarioPublicoSerializer(serializers.ModelSerializer):
