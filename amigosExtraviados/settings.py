@@ -41,7 +41,9 @@ INSTALLED_APPS = (
     #3
     'rest_framework',
     #
-    'usuario'
+    #'commons',
+    'usuario',
+    'perdido'
 
 )
 
