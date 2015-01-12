@@ -44,7 +44,8 @@ INSTALLED_APPS = (
     #'commons',
     'usuario',
     'front',
-    'perdido'
+    'perdido',
+    'comentario'
 
 )
 
