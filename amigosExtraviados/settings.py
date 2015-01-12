@@ -43,7 +43,9 @@ INSTALLED_APPS = (
     #
     #'commons',
     'usuario',
-    'perdido'
+    'front',
+    'perdido',
+    'comentario'
 
 )
 
@@ -77,7 +79,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'es-CO'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
@@ -93,3 +95,11 @@ STATIC_URL = '/static/'
 
 #se configura el modelo con el cual se va a tratar la autenticacion
 AUTH_USER_MODEL = 'usuario.Usuario'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}

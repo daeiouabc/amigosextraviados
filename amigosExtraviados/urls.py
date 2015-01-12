@@ -2,7 +2,11 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
 from usuario.urls import routerUsuarioRUD, routerUsuarioCreate, routerUsuarioPublico
+
 from perdido.urls import routerPerdidoRUD, routerPerdidoCreate
+
+from comentario.urls import routerComentarioRUD, routerComentarioCreate
+
 
 urlpatterns = patterns('',
     # Examples:
@@ -15,6 +19,9 @@ urlpatterns = patterns('',
     url(r'^api/user/(?P<pk>\d+)', include(routerUsuarioPublico)),
      url(r'^api/perdido/create', include(routerPerdidoCreate)),
     url(r'^api/perdido/', include(routerPerdidoRUD.urls)),
+
+    url(r'^api/comment/create', include(routerComentarioCreate)),
+    url(r'^api/comment/', include(routerComentarioRUD.urls)),
 
 
     #urls temporales para el login y el logout
