@@ -8,5 +8,5 @@ class Perdido(Mascota):
 
 
 	def pre_save(self, obj):
-		print "pre save"
+		print ("pre save")
 		obj.usuario = self.request.user
