@@ -3,8 +3,6 @@ from .models import Perdido
 
 
 class PerdidoSerializer(serializers.ModelSerializer):
-	"""docstring for PerdidoSerializer"""
-	class Meta:
-		model = Perdido
-		
-		
+    """docstring for PerdidoSerializer"""
+    class Meta:
+        model = Perdido
