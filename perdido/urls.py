@@ -1,27 +1,11 @@
 from django.conf.urls import patterns, url
-from rest_framework.routers import Route, SimpleRouter
 
 from . import views
 
-
-class CostomOwnerRouter(SimpleRouter):
-	"""docstring for CostumOwnerRouter"""
-	routes = [
-        # Detail route.
-        Route(
-            url=r'^{prefix}/{lookup}{trailing_slash}$',
-            mapping={
-                'get': 'retrieve',
-                'put': 'update',
-                'delete': 'destroy'
-            },
-            name='{basename}-detail',
-            initkwargs={'suffix': 'Instance'}
-        )
-    ]
+from commons.routes import CustomOwnerRouter
 
 
-routerPerdidoRUD = CostomOwnerRouter()
+routerPerdidoRUD = CustomOwnerRouter()
 routerPerdidoRUD.register(r'edit', views.PerdidoViewSet)
 
 
