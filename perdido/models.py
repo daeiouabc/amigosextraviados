@@ -1,12 +1,12 @@
 from django.db import models
 from commons.mascota import Mascota
-from usuario.models import Usuario
-
 
 
 class Perdido(Mascota):
-	usuario = models.ForeignKey(Usuario, editable=False)
-	fechaDesaparicion = models.CharField(max_length=15, help_text='AAAA/MM/DD')
+	fechaDesaparicion = models.DateField()
 	dirDesaparicion = models.CharField(max_length=50)
 
-	
+
+	def pre_save(self, obj):
+		print "pre save"
+		obj.usuario = self.request.user
