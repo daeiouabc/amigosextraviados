@@ -45,7 +45,8 @@ INSTALLED_APPS = (
     'usuario',
     'front',
     'perdido',
-    'comentario'
+    'comentario',
+    'third_party_apps.geoposition',
 
 )
 
@@ -103,3 +104,17 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     )
 }
+
+#Geoposition app ettings
+GEOPOSITION_MAP_WIDGET_HEIGHT = 400
+
+GEOPOSITION_MAP_OPTIONS = {
+    'minZoom': 5,
+    'maxZoom': 16,
+}
+
+GEOPOSITION_MARKER_OPTIONS = {
+    'cursor': 'move'
+}
+#end geoposition
+
