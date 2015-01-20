@@ -40,3 +40,4 @@ class UsuarioPublico(APIView):
         user = get_object_or_404(Usuario, pk=pk)
         serializer = UsuarioPublicoSerializer(user)
         return Response(serializer.data)
+

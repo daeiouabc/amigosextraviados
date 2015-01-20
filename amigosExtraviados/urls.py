@@ -1,11 +1,11 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from usuario.urls import routerUsuarioRUD, routerUsuarioCreate, routerUsuarioPublico
+from usuario.urls import routerUsuario
 
-from perdido.urls import routerPerdidoRUD, routerPerdidoCreate
+from perdido.urls import routerPerdido
 
-from comentario.urls import routerComentarioRUD, routerComentarioCreate
+from comentario.urls import routerComentario
 
 
 urlpatterns = patterns('',
@@ -14,18 +14,13 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/user/create', include(routerUsuarioCreate)),
-    url(r'^api/user/', include(routerUsuarioRUD.urls)),
-    url(r'^api/user/(?P<pk>\d+)', include(routerUsuarioPublico)),
-     url(r'^api/perdido/create', include(routerPerdidoCreate)),
-    url(r'^api/perdido/', include(routerPerdidoRUD.urls)),
+    url(r'^api/user/', include(routerUsuario)),
+    url(r'^api/perdido/', include(routerPerdido)),
 
-    url(r'^api/comment/create', include(routerComentarioCreate)),
-    url(r'^api/comment/', include(routerComentarioRUD.urls)),
+    url(r'^api/comment/', include(routerComentario)),
 
 
     #urls temporales para el login y el logout
     url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
-
 
 )

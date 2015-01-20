@@ -1,5 +1,4 @@
 from django.conf.urls import patterns, url
-
 from commons.routes import CustomOwnerRouter
 
 from . import views
@@ -9,8 +8,11 @@ from . import views
 routerUsuarioRUD = CustomOwnerRouter()
 routerUsuarioRUD.register(r'edit', views.UsuarioViewSet)
 
-#ruta para crear
-routerUsuarioCreate = patterns('', url(r'', views.CrearUsuario.as_view({'post': 'create'})), )
+routerUsuario = patterns('',
+    #crear
+    url(r'^create', views.CrearUsuario.as_view({'post': 'create'})),
+    #publico
+    url(r'^(?P<pk>\d+)', views.UsuarioPublico.as_view()), )
 
-#ruta publica
-routerUsuarioPublico = patterns('', url(r'', views.UsuarioPublico.as_view()), )
+#Leer, Actualizar y Eliminar
+routerUsuario += routerUsuarioRUD.urls

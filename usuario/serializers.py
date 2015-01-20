@@ -34,8 +34,9 @@ class UsuarioSerializer(serializers.ModelSerializer):
 
 class UsuarioPublicoSerializer(serializers.ModelSerializer):
     """Usuario Publico Serializer, Clase para mostrar ls informacion del usuario al publico"""
+    full_name = serializers.CharField(source='get_full_name', read_only=True)
 
-    class Meta:
+    class Meta():
         model = Usuario
-        fields = ('id', 'is_active', 'nombre', 'apellido')
-        read_only_fields = ('id', 'is_active', 'nombre', 'apellido')
+        fields = ('id', 'is_active', 'full_name')
+        read_only_fields = ('id', 'is_active')

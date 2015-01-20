@@ -57,3 +57,6 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
         if not self.is_superuser:
             self.set_password(self.password)
         super(Usuario, self).save(*args, **kwargs)
+
+    def get_full_name(self):
+        return u'%s %s' % (self.nombre, self.apellido)

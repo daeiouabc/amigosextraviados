@@ -1,4 +1,4 @@
-from rest_framework.routers import Route, SimpleRouter
+from rest_framework.routers import Route, SimpleRouter, DefaultRouter
 
 
 class CustomOwnerRouter(SimpleRouter):
@@ -20,3 +20,15 @@ class CustomOwnerRouter(SimpleRouter):
             initkwargs={'suffix': 'Instance'}
         )
     ]
+
+"""
+class MascotasCercaRouter(DefaultRouter):
+        routes = [
+        Route(
+            url=r'^{prefix}/((?P<pk>\d+)/)?info$',
+            mapping={'get': 'info'},
+            name='{basename}-info',
+            initkwargs={}
+        )
+    ] + DefaultRouter.routes
+"""
