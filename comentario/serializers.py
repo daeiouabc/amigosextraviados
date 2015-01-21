@@ -7,11 +7,14 @@ class ComentarioSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comentario
-        read_only_fields = ('id', 'fechaPublicacion', 'autor', 'publicacion_type')
+        read_only_fields = ('id', 'fechaPublicacion', 'autor', )
 
     def create(self, validated_data):
         validated_data['autor'] = self.context['request'].user
         return Comentario.objects.create(**validated_data)
+
+
+from usuario.serializers import UsuarioPublicoSerializer
 
 
 class ComentarioPublicoSerializer(serializers.ModelSerializer):
@@ -22,4 +25,5 @@ class ComentarioPublicoSerializer(serializers.ModelSerializer):
         fields = ('id', 'fechaPublicacion', 'texto', 'autor')
 
     def get_autor(self, object):
-        return {'autor': object.autor.get_full_name(), 'id': object.autor.id, 'is_active': object.autor.is_active}
+        autor = UsuarioPublicoSerializer(object.autor)
+        return autor.data
