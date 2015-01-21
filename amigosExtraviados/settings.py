@@ -47,7 +47,6 @@ INSTALLED_APPS = (
     'perdido',
     'comentario',
     'third_party_apps.geoposition',
-
 )
 
 MIDDLEWARE_CLASSES = (
@@ -117,4 +116,3 @@ GEOPOSITION_MARKER_OPTIONS = {
     'cursor': 'move'
 }
 #end geoposition
-

@@ -12,7 +12,7 @@ routerUsuario = patterns('',
     #crear
     url(r'^create', views.CrearUsuario.as_view({'post': 'create'})),
     #publico
-    url(r'^(?P<pk>\d+)', views.UsuarioPublico.as_view()), )
+    url(r'^(?P<pk>\d+)', views.UsuarioPublico.as_view(), name='usuario-pub'), )
 
 #Leer, Actualizar y Eliminar
 routerUsuario += routerUsuarioRUD.urls

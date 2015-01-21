@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
 from .models import Comentario
-from .serializers import ComentarioSerializer
+from .serializers import ComentarioSerializer, ComentarioPublicoSerializer
 
 from commons.permissions import IsAutor
 
@@ -20,3 +20,15 @@ class CrearComentario(viewsets.ModelViewSet):
     model = Comentario
     serializer_class = ComentarioSerializer
     permission_classes = (IsAuthenticated,)
+
+
+from rest_framework.generics import ListAPIView
+
+
+class ComentarioLista(ListAPIView):
+    serializer_class = ComentarioPublicoSerializer
+    paginate_by = 5
+
+    def get_queryset(self):
+        print(self.kwargs['pk'])
+        return Comentario.objects.filter(object_id=self.kwargs['pk'])
