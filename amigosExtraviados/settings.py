@@ -34,12 +34,14 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
+    #'django.contrib.messages', se desactiva para las notificaciones
     'django.contrib.staticfiles',
     #debug
     #'debug_toolbar'
     #3
     'rest_framework',
+    'user_sessions',  # para las notificaciones
+    'notifications',  # app para las notificaciones
     #
     #'commons',
     'usuario',
@@ -50,7 +52,8 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    #'django.contrib.sessions.middleware.SessionMiddleware', se desactiva para las notificaciones
+    'user_sessions.middleware.SessionMiddleware',  # para las notificaciones
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -116,3 +119,6 @@ GEOPOSITION_MARKER_OPTIONS = {
     'cursor': 'move'
 }
 #end geoposition
+
+
+SESSION_ENGINE = 'user_sessions.backends.db'  # para las notificaciones
