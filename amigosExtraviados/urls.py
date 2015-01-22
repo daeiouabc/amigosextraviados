@@ -7,6 +7,9 @@ from perdido.urls import routerPerdido
 
 from comentario.urls import routerComentario
 
+from notificacion.urls import routerNotificacion
+import notifications
+
 
 urlpatterns = patterns('',
     # Examples:
@@ -18,9 +21,11 @@ urlpatterns = patterns('',
     url(r'^api/perdido/', include(routerPerdido)),
 
     url(r'^api/comment/', include(routerComentario)),
+    url(r'^api/notify/', include(routerNotificacion)),
 
 
     #urls temporales para el login y el logout
     url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url('^inbox/notifications/', include(notifications.urls)),
 
 )

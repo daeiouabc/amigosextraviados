@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'perdido',
     'comentario',
     'third_party_apps.geoposition',
+    'notificacion'
 )
 
 MIDDLEWARE_CLASSES = (
