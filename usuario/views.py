@@ -6,16 +6,14 @@ from django.contrib.auth import get_user_model
 
 from commons.permissions import IsSelf
 from .serializers import UsuarioSerializer, UsuarioPublicoSerializer
-from .models import Usuario
 
 
-"""para sacar la clase que se usa para la autenticacion"""
-#Usuario = get_user_model()
+#para obtener la clase que se usa para la autenticacion
+Usuario = get_user_model()
 
 
 class UsuarioViewSet(viewsets.ModelViewSet):
     """Usuario, clase con los metodos y rutas para el RUD"""
-    model = Usuario
     serializer_class = UsuarioSerializer
     queryset = Usuario.objects.all()  # optimizar
     permission_classes = (IsAuthenticated, IsSelf)
@@ -23,7 +21,6 @@ class UsuarioViewSet(viewsets.ModelViewSet):
 
 class CrearUsuario(viewsets.ModelViewSet):
     """CrearUsuario, clase que se usa solo para crear un usuario"""
-    model = Usuario
     serializer_class = UsuarioSerializer
 
 
@@ -40,4 +37,3 @@ class UsuarioPublico(APIView):
         user = get_object_or_404(Usuario, pk=pk)
         serializer = UsuarioPublicoSerializer(user)
         return Response(serializer.data)
-

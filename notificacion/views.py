@@ -1,16 +1,13 @@
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import IsAuthenticated
 
-from notifications.models import Notification
-
 from .serializers import NotificationSerializer
 
 
-class NotificationLista(ListAPIView):
+class NotificacionLista(ListAPIView):
     """
     Lista Todas las notificaciones del usuario que se encuentra autenticado
     """
-    model = Notification
     queryset = {}
     serializer_class = NotificationSerializer
     permission_classes = (IsAuthenticated, )
@@ -21,7 +18,7 @@ class NotificationLista(ListAPIView):
         return self.request.user.notifications.all()
 
 
-class NotificationUnRead(NotificationLista):
+class NotificacionUnRead(NotificacionLista):
     """
     Lista todas las notificaciones marcadas sin leer
     """

@@ -8,9 +8,11 @@ from . import views
 routerComentarioRUD = CustomOwnerRouter()
 routerComentarioRUD.register(r'edit', views.ComentarioViewSet)
 
-routerComentario = patterns('',
+routerComentario = patterns(
+    '',
     #crear
     url(r'^create', views.CrearComentario.as_view({'post': 'create'})),
+
     #listar comentarios de una publicacion
     url(r'^list/(?P<pk>\d+)', views.ComentarioLista.as_view()), )
 
