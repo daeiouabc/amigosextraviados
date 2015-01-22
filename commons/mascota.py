@@ -1,7 +1,7 @@
 from django.db import models
 from .publicacion import Publicacion
 
-from third_party_apps.geoposition.fields import GeopositionField
+from geoposition.fields import GeopositionField
 
 #from django.contrib.contenttypes import generic
 #from django.contrib.contenttypes.models import ContentType

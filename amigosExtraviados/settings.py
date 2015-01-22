@@ -48,7 +48,7 @@ INSTALLED_APPS = (
     'front',
     'perdido',
     'comentario',
-    'third_party_apps.geoposition',
+    'geoposition',
     'notificacion'
 )
 
