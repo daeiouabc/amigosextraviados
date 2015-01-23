@@ -36,12 +36,15 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     #'django.contrib.messages', se desactiva para las notificaciones
     'django.contrib.staticfiles',
-    #debug
-    #'debug_toolbar'
     #3
     'rest_framework',
+
+    'debug_toolbar',  # debug
+    'debug_panel',  # debug
+
     'user_sessions',  # para las notificaciones
     'notifications',  # app para las notificaciones
+    'easy_thumbnails',  # app para la creacion de thumbnails
     #
     #'commons',
     'usuario',
@@ -54,6 +57,7 @@ INSTALLED_APPS = (
 
 MIDDLEWARE_CLASSES = (
     #'django.contrib.sessions.middleware.SessionMiddleware', se desactiva para las notificaciones
+    'debug_panel.middleware.DebugPanelMiddleware',  # debug toolbar
     'user_sessions.middleware.SessionMiddleware',  # para las notificaciones
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -123,3 +127,19 @@ GEOPOSITION_MARKER_OPTIONS = {
 
 
 SESSION_ENGINE = 'user_sessions.backends.db'  # para las notificaciones
+
+
+#easy tumbnails
+THUMBNAIL_ALIASES = {
+    '': {
+        'mini': {'size': (50, 50), 'crop': True},
+        'medio': {'size': (250, 250), 'crop': True},
+    },
+}
+
+#THUMBNAIL_BASEDIR = 'thum'
+THUMBNAIL_EXTENSION = 'jpg'
+
+
+#mascotas setting
+DEFAULT_MASCOTA_IMAGE_SETTING = dict(size=(500, 500), sharpen=True)

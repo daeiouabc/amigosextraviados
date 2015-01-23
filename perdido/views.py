@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from .models import Perdido
-from .serializer import PerdidoSerializer
+from .serializer import PerdidoSerializer, PerdidoShortSerializer
 
 
 class PerdidoViewSet(viewsets.ModelViewSet):
@@ -34,7 +34,7 @@ from rest_framework import mixins
 class PerdidoCercanoLista(mixins.ListModelMixin, viewsets.GenericViewSet):
     """Listado de solo lectura de perdidos cercanos a la ubicacion del Usuario, tambien provee filtro por especie"""
     queryset = Perdido.objects.all()
-    serializer_class = PerdidoSerializer
+    serializer_class = PerdidoShortSerializer
     filter_class = PerdidoFilter
     filter_backends = (
         filters.DjangoFilterBackend,
