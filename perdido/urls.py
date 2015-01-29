@@ -20,3 +20,4 @@ routerPerdido = patterns('',
     url(r'create', views.CreatePerdido.as_view({'post': 'create'})), )
 
 routerPerdido += router.urls
+routerPerdido += routerPerdidoRUD.urls

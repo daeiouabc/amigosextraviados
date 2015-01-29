@@ -15,7 +15,7 @@ from django.conf import settings
 
 def content_file_name(instance, filename):
     out_file = str(instance.id) + "".join([c for c in str(timezone.now()) if re.match(r'\w', c)])
-    return '/'.join(['mascotas', str(instance.autor.id), out_file])
+    return '/'.join(['fotos', str(instance.autor.id), out_file])
 
 
 class Mascota(Publicacion):

@@ -4,6 +4,8 @@ from notifications import notify
 
 from perdido.models import Perdido
 
+from django.contrib.contenttypes.models import ContentType
+
 
 class ComentarioSerializer(serializers.ModelSerializer):
     """ComentarioSerializer"""
@@ -15,6 +17,11 @@ class ComentarioSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = self.context['request'].user
         validated_data['autor'] = user
+
+        if validated_data['publicacion_type'] == ContentType.objects.get_for_model(Perdido):
+            print("Perdido")
+
+        validated_data['object_id']
         return Comentario.objects.create(**validated_data)
 
     def save(self):
