@@ -29,4 +29,3 @@ from rest_framework.permissions import IsAuthenticated
 class AuthMixin:
     authentication_classes = (authentication.TokenAuthentication,
                               authentication.SessionAuthentication)
-    permission_classes = (IsAuthenticated, )

@@ -5,9 +5,9 @@ django-appconf==0.6
 django-debug-panel==0.8.0
 django-debug-toolbar==1.2.2
 django-filter==0.9.1
--e git+https://github.com/rizotas/django-geoposition.git@cb5e91627cda6a7f47620e0c9256a7655a6c0e4e#egg=django_geoposition-origin/HEAD
+-e git+https://github.com/rizotas/django-geoposition.git#egg=django_geoposition-origin
 django-model-utils==2.2
--e git+https://github.com/rizotas/django-notifications.git@5d6d1e1d4cf17e76367a78b4f73f6e6e4f432999#egg=django_notifications_hq-origin/HEAD
+-e git+https://github.com/rizotas/django-notifications.git#egg=django_notifications_hq-origin
 django-user-sessions==1.1.0
 djangorestframework==3.0.2
 djangorestframework-jwt==1.2.0

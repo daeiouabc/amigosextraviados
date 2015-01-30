@@ -10,6 +10,7 @@ from comentario.urls import routerComentario
 from notificacion.urls import routerNotificacion
 import notifications
 
+from autenticacion.urls import routerToken
 
 urlpatterns = patterns('',
     # Examples:
@@ -21,13 +22,14 @@ urlpatterns = patterns('',
     url(r'^api/perdido/', include(routerPerdido)),
 
     url(r'^api/comment/', include(routerComentario)),
-    url(r'^api/notify/', include(routerNotificacion)),
+    url(r'^api/inbox/notification/', include(routerNotificacion)),
+
+    url(r'^api/auth/', include(routerToken)),
 
 
     #urls temporales para el login y el logout
-    url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
+    #url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
     url('^inbox/notifications/', include(notifications.urls)),
-    url(r'^api/auth/token/', 'rest_framework_jwt.views.obtain_jwt_token'),
 
 )
 

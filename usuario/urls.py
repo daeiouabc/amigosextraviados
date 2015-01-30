@@ -1,18 +1,19 @@
 from django.conf.urls import patterns, url
 from commons.routes import CustomOwnerRouter
 
-from . import views
+from .views import CrearUsuario, UsuarioViewSet, UsuarioPublico
 
 
 #rutas para Leer, Actualizar y Eliminar
 routerUsuarioRUD = CustomOwnerRouter()
-routerUsuarioRUD.register(r'edit', views.UsuarioViewSet)
+routerUsuarioRUD.register(r'edit', UsuarioViewSet)
 
-routerUsuario = patterns('',
+routerUsuario = patterns(
+    '',
     #crear
-    url(r'^create', views.CrearUsuario.as_view({'post': 'create'})),
+    url(r'^create', CrearUsuario.as_view({'post': 'create'}), name='create'),
     #publico
-    url(r'^(?P<pk>\d+)', views.UsuarioPublico.as_view()), )
+    url(r'^(?P<pk>\d+)', UsuarioPublico.as_view(), name='public'), )
 
 #Leer, Actualizar y Eliminar
 routerUsuario += routerUsuarioRUD.urls

@@ -11,7 +11,7 @@ class BaseTestCase(TestCase):
         self.name = 'test user'
         self.password = 'testing'
 
-        self.url_auth = '/api/auth/token/'
+        self.url_auth = '/api/auth/token/login'
         self.url_create = '/api/user/create/'
         self.url_public = "/api/user/{}"
 
@@ -36,7 +36,7 @@ class BaseTestCase(TestCase):
             'email': self.email,
             'password': self.password
         }
-        print(self.client.post(self.url_auth, self.data, format='json').data)
+        self.token = self.client.post(self.url_auth, self.data, format='json').data['auth_token']
 
 
 class CreateUsuarioTest(BaseTestCase):
@@ -143,8 +143,14 @@ class PublicUsuarioTests(BaseTestCase):
         self.create_account()
         self.login()
 
+        headers = {
+            'content-type': 'application/json',
+            'Authorization': 'Token %s' % (self.token)
+        }
+        print(headers)
+
         self.create_user(name='Test 2', email='testuser2@test', password='testing')
 
-        response = self.client.post(self.url_public.format('2'))
+        response = self.client.get(self.url_public.format('2'), **headers)
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         print(response.data)

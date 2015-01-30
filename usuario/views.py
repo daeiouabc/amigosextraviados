@@ -1,5 +1,5 @@
-from rest_framework import viewsets
-
+from rest_framework import viewsets, generics
+from rest_framework.response import Response
 
 from django.contrib.auth import get_user_model
 
@@ -20,19 +20,22 @@ class UsuarioViewSet(AuthMixin, viewsets.ModelViewSet):
     permission_classes = (IsSelf, )
 
 
+from rest_framework import permissions
+
+
 class CrearUsuario(viewsets.ModelViewSet):
     """CrearUsuario, clase que se usa solo para crear un usuario"""
     serializer_class = UsuarioSerializer
-    permission_classes = ()
+    permission_classes = (permissions.AllowAny, )
 
 
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
-from rest_framework.response import Response
 
 
 class UsuarioPublico(AuthMixin, APIView):
     """Usuario, clase con los metodos y rutas para mostrar los datos publicos del usuario"""
+    permission_classes = (permissions.AllowAny, )
 
     def get(self, request, pk):
         user = get_object_or_404(Usuario, pk=pk)
