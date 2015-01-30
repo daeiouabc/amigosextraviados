@@ -20,3 +20,13 @@ class IsAutor(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         """si el usuario que intenta acceder es el 'dueño' del objeto"""
         return obj.autor.id == request.user.id
+
+
+from rest_framework import authentication
+from rest_framework.permissions import IsAuthenticated
+
+
+class AuthMixin:
+    authentication_classes = (authentication.TokenAuthentication,
+                              authentication.SessionAuthentication)
+    permission_classes = (IsAuthenticated, )

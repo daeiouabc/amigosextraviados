@@ -10,7 +10,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
         fields = ('id', 'email', 'is_active', 'nombre', 'apellido', 'direccion', 'telefono', 'password')
-        read_only_fields = ('id', )
+        read_only_fields = ('id', 'is_active')
         #write_only_fields = ('password')#pending deprecation
         extra_kwargs = {'password': {'write_only': True}}
         #password = serializers.Field(source='password', required=False)

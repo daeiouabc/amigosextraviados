@@ -5,7 +5,6 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 class UsuarioManager(BaseUserManager):
 
     def _create_user(self, email, password, is_staff, is_superuser, **extra_fields):
-        print("crear")
         if not email:
             raise ValueError('El email debe ingresarse')
         email = self.normalize_email(email)
@@ -15,11 +14,9 @@ class UsuarioManager(BaseUserManager):
         return user
 
     def create_user(self, email, password=None, **extra_fields):
-        print("create_user")
         return self._create_user(email, password, False, False, **extra_fields)
 
     def create_superuser(self,  email, password, **extra_fields):
-        print("create_superuser")
         return self._create_user(email, password, True, True, **extra_fields)
 
 

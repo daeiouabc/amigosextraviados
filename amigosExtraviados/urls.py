@@ -27,6 +27,7 @@ urlpatterns = patterns('',
     #urls temporales para el login y el logout
     url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
     url('^inbox/notifications/', include(notifications.urls)),
+    url(r'^api/auth/token/', 'rest_framework_jwt.views.obtain_jwt_token'),
 
 )
 

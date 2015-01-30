@@ -41,13 +41,19 @@ class PerdidoCercanoLista(mixins.ListModelMixin, viewsets.GenericViewSet):
         filters.SearchFilter,
         filters.OrderingFilter, )
     search_fields = ('especie', )
+    DIRECCION_DEFAULT = 'colombia'
 
     """
     List a queryset.
     """
     def list(self, request, *args, **kwargs):
         #query = Perdido.objects.filter(dirDesaparicion=request.user.direccion)
-        query = Perdido.objects.filter(dirDesaparicion__contains=request.user.direccion)
+        try:
+            direccion = request.user.direccion
+        except:
+            direccion = self.DIRECCION_DEFAULT
+
+        query = Perdido.objects.filter(dirDesaparicion__contains=direccion)
 
         instance = self.filter_queryset(query)
         page = self.paginate_queryset(instance)
