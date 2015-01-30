@@ -1,5 +1,6 @@
 Django==1.7.1
 Pillow==2.7.0
+PyJWT==0.4.1
 django-appconf==0.6
 django-debug-panel==0.8.0
 django-debug-toolbar==1.2.2
@@ -9,6 +10,7 @@ django-model-utils==2.2
 -e git+https://github.com/rizotas/django-notifications.git@5d6d1e1d4cf17e76367a78b4f73f6e6e4f432999#egg=django_notifications_hq-origin/HEAD
 django-user-sessions==1.1.0
 djangorestframework==3.0.2
+djangorestframework-jwt==1.2.0
 easy-thumbnails==2.2
 six==1.9.0
 sqlparse==0.1.14
