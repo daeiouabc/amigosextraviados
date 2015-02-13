@@ -26,6 +26,7 @@ urlpatterns = patterns('',
 
     url(r'^api/auth/', include(routerToken)),
 
+    url(r'^', include('front.urls', namespace='front')),
 
     #urls temporales para el login y el logout
     #url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),

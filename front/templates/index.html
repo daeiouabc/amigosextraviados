@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>Amigos Extraviados</title>
+
+		<link rel="stylesheet" href="{{STATIC_URL}}libs/bootstrap/bootstrap.min.css">
+		<script src="{{STATIC_URL}}libs/bootstrap/bootstrap.min.js" ></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row head">
+				<button type="button" class="btn btn-default">Inicia sesión</button>
+
+			</div>
+			<hr>
+			<div class="row">
+				
+				<div class="title">
+					Amigos extraviados
+				</div>
+
+				<div class="registro">
+					<form  method='post' action=''>{% csrf_token %}
+						<div class="form-group">
+							<div class="form-group">
+								<input  type="email" class="form-control" placeholder="Correo Electronico" name="email">
+								<br>
+								<input  type="password" class="form-control" placeholder="Contraseña" name="password">
+								<br>
+								<input  type="password" class="form-control" placeholder="Confirmar Contraseña" name="password">
+							</div>
+						</div>
+							<div>
+								<input type='submit'  class="btn btn-default" value='Registraté'/>
+							</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</body>
+</html>
