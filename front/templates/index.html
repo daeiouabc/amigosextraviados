@@ -5,23 +5,40 @@
 		<title>Amigos Extraviados</title>
 
 		<link rel="stylesheet" href="{{STATIC_URL}}libs/bootstrap/bootstrap.min.css">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="{{STATIC_URL}}css/app.css">
 		<script src="{{STATIC_URL}}libs/jquery/jquery.min.js" ></script>
 		<script src="{{STATIC_URL}}libs/bootstrap/bootstrap.min.js" ></script>
 		<script src="{{STATIC_URL}}js/app.js" ></script>
 	</head>
 	<body>
+	<section>
 		<div class="row slide">
-			<div class="row head">
-				<div class="col-md-12">
+			<header  class="page-header" >
+				<div class="col-md-12" id="head">
 					<div class="col-md-6">
 						<h1>Amigos Extraviados </h1>
 					</div>
 					<div class="col-md-6">
-						<button type="button" class="btn btn-default pull-right">Inicia sesión</button>
+						<a type="button" class="btn btn-default pull-right">Inicia sesión</a>
+						<!---->
+						<div class="dropdown pull-right">
+						  <a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+						    Explora
+						    <span class="caret"></span>
+						  </a>
+						  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mascotas Perdidas</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mascotas Adoptadas</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mascotas Encontradas</a></li>
+					
+						  </ul>
+						</div>
+
+						<!---->
 					</div>
 				</div>
-			</div>
+			</header>
 			
 			<div class="row" id="slide1">
 				<div class="col-md-4 bienvenido">
@@ -39,14 +56,26 @@
 									<input  type="password" class="form-control" placeholder="Confirmar Contraseña" name="password">
 								</div>
 						
-								<input type='submit'  class="btn btn-default btn-registro" value='Registraté'/>	
-								<br><br><br><br>
-								<a id="down"> <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>Conoce mas acerca de nosotros</a>	
+								<input type='submit' class="btn btn-default " value='Registraté'/>	
+								<br><br>
+								<div class="col-md-12">
+								<p class="pull-left">Ingresa con:</p><br><br>
+									<span class="fa fa-google-plus-square fa-3x">
+									<span class="fa fa-facebook-square">
+									<span class="fa fa-twitter-square ">
+									
+									
+								</div>
+							
 							</div>
 						</form>
 					</div>
 
 				</div>
+				<div class="btn-down">
+					<a id="down"> <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>Conoce mas acerca de nosotros</a>	
+				</div>
+				
 			</div>
 			
 				
@@ -84,6 +113,6 @@
 		</div>
 
 
-
+		</section>
 	</body>
 </html>

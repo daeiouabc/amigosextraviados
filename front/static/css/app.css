@@ -1,3 +1,10 @@
+body{
+	left: 0;
+  	margin: 0;
+  	overflow-x: hidden;
+  	position: relative;
+}
+
 input{
 	margin: 10px;
 } 
@@ -8,15 +15,18 @@ input{
 	margin: 0px;
 }
 
-.head{
+
+/*++++++++++++++++*/
+.page-header{
+	margin-top: 0;
 	border-bottom: 1px solid;
 	background-color: #36465D;
 	color:white;
 	min-height: 150px;
 }
 
-.head .btn{
-	margin-top: 1.25em;
+.page-header a{
+	margin: 10px;	
 }
 
 .slide{
@@ -27,7 +37,7 @@ input{
 .bienvenido{
 	border-top: solid 1px;
 	left: 32.5%;
-	margin-top: -47px;
+	margin-top: -66px;
 	box-shadow:  0px 0px 4px 1px #777;
 	position: absolute;
 	background-color: white;
@@ -44,11 +54,6 @@ input{
 .camposR{
 	left: 8%;
 }
-
-.btn-registro{
-	margin: 0px 124px;
-}
-
 
 .info{
 	margin-top: 200px;
@@ -68,4 +73,15 @@ input{
 	text-align: center;
 	height: 230px;
 
+}
+
+.btn-down{
+	margin-top: 430px;
+	text-align: center;
+}
+
+
+
+.navbar{
+	margin-top: -50px;
 }

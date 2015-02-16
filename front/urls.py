@@ -3,6 +3,7 @@ from django.conf.urls import patterns, url
 urlpatterns = patterns('',
 
   url(r'^$', 'front.views.index', name='index'),
+  url(r'^inicio/$', 'front.views.inicio', name='inicio'),
   url(r'^perdidos/$', 'front.views.perdidos', name='perdidos'),
   url(r'^encontrados/$', 'front.views.encontrados', name='encontrados'),
   url(r'^adopciones/$', 'front.views.adopcion', name='adopciones'),

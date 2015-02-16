@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset='utf-8'>
+		<title>Amigos Extraviados</title>
+		<link rel="stylesheet" href="{{STATIC_URL}}libs/bootstrap/bootstrap.min.css">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="{{STATIC_URL}}css/app.css">
+		<script src="{{STATIC_URL}}libs/jquery/jquery.min.js" ></script>
+		<script src="{{STATIC_URL}}libs/bootstrap/bootstrap.min.js" ></script>
+		<script src="{{STATIC_URL}}js/app.js" ></script>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	</head>
+	<body>
+
+		<section>
+			<header  class="page-header">
+				<div class="col-md-12">
+					<div class="col-md-6">
+						<h1>Amigos Extraviados </h1>
+					</div>
+					<div class="col-md-6">
+						<a type="button" class="btn btn-default pull-right">Salir</a>
+					</div>
+				</div>
+			</header>
+
+			<div class="container">
+				<nav  class="navbar navbar-default navbar-static-top" role="navigation">
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul  class="nav navbar-nav">
+							<li>
+								<a href="">
+								 Inicio
+								</a>
+							</li>
+							<li >
+								<a id="cat_perdidos" href="">Mascotas Perdidas</a>
+							</li>
+							<li>
+								<a href="">Mascotas en Adopción</a>
+							</li>
+							<li>
+								<a href="">Mascotas Encontradas</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+
+				{% block contenido %}
+				
+		
+				{% endblock %}
+			
+
+	
+
+			</div>
+			<footer class="footer">
+				<br>
+				<div class="col-lg-2 col-md-2 col-sm-2 col-centered">
+					Hola soy el footer 
+				</div>
+			</footer>
+	</section>
+			
+
+	</body>
+</html>
