@@ -28,6 +28,10 @@ input{
 	margin: 10px;	
 }
 
+#head{
+	margin-top: 30px;
+}
+
 .slide{
 	min-height: 650px; 
 }
@@ -94,4 +98,5 @@ input{
 
 .navbar{
 	margin-top: -50px;
+	border-radius: 15px;
 }

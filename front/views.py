@@ -20,5 +20,9 @@ def encontrados(request):
     return render_to_response('encontrados.html', context_instance=RequestContext(request))
 
 
+def adopciones(request):
+    return render_to_response('adopciones.html', context_instance=RequestContext(request))
+
+
 def Detallemascota(request):
     return render_to_response('Detallemascota.html', context_instance=RequestContext(request))
