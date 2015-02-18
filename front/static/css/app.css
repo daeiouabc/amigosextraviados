@@ -98,5 +98,13 @@ input{
 
 .navbar{
 	margin-top: -50px;
-	border-radius: 15px;
+	border-radius: 2px;
+}
+
+.btn{
+	border-radius: 5px;
+}
+
+.flex{
+	display: flex;
 }

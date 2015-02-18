@@ -3,13 +3,13 @@ from rest_framework import serializers
 from .models import Usuario
 
 
-class UsuarioSerializer(serializers.ModelSerializer):
+class UsuarioRegistroSerializer(serializers.ModelSerializer):
     """UsuarioSerializer, Clase para el CRUD"""
     password = serializers.CharField(required=False, allow_blank=True, write_only=True)
 
     class Meta:
         model = Usuario
-        fields = ('id', 'email', 'is_active', 'nombre', 'apellido', 'direccion', 'telefono', 'password')
+        fields = ('id', 'email', 'is_active', 'nombre', 'apellido', 'password')
         read_only_fields = ('id', 'is_active')
         #write_only_fields = ('password')#pending deprecation
         extra_kwargs = {'password': {'write_only': True}}
@@ -19,8 +19,6 @@ class UsuarioSerializer(serializers.ModelSerializer):
         make_passwork = False
         instance.nombre = validated_data.get('nombre', instance.nombre)
         instance.apellido = validated_data.get('apellido', instance.apellido)
-        instance.direccion = validated_data.get('direccion', instance.direccion)
-        instance.telefono = validated_data.get('telefono', instance.telefono)
         try:
             if validated_data.get('password', None):
                 instance.password = validated_data.get('password', None)

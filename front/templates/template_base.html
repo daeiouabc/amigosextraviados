@@ -28,21 +28,11 @@
 			<div class="container">
 				<nav  class="navbar navbar-default navbar-static-top" role="navigation">
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul  class="nav navbar-nav">
-							<li>
-								<a href="">
-								 Inicio
-								</a>
-							</li>
-							<li >
-								<a id="cat_perdidos" href="">Mascotas Perdidas</a>
-							</li>
-							<li>
-								<a href="">Mascotas en Adopción</a>
-							</li>
-							<li>
-								<a href="">Mascotas Encontradas</a>
-							</li>
+						<ul class="nav navbar-nav">
+							<li><a href="{% url 'front:index' %}">Inicio</a></li>
+							<li><a id="cat_perdidos" href="{% url 'front:perdidos' %}">Mascotas Perdidas</a></li>
+							<li><a href="">Mascotas en Adopción</a></li>
+							<li><a href="">Mascotas Encontradas</a></li>
 						</ul>
 					</div>
 				</nav>

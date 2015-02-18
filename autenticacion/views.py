@@ -1,10 +1,9 @@
 from rest_framework import generics, permissions, status, response
-from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
 
-from .serializers import TokenSerializer, UsuarioLoginSerializer
+from .serializers import UsuarioLoginSerializer
 
 
 class RootView(generics.GenericAPIView):
@@ -62,28 +61,4 @@ class LogoutView(generics.GenericAPIView):
 
     def delete(self, request):
         logout(request)
-        return response.Response(status=status.HTTP_200_OK)
-
-
-class GetTokenView(LoginView):
-    """
-    Authenticacion con Token
-    """
-    def login(self, user):
-        token, _ = Token.objects.get_or_create(user=user)
-        print(token)
-        #request.META['auth_token'] = token
-        #request.META['WWW-Authenticate'] = 'Token "%s"' % (token)
-        return Response(data=TokenSerializer(token).data, status=status.HTTP_200_OK,)
-
-
-class DelTokenView(generics.GenericAPIView):
-    """
-    REmuve authenticacion Token
-    """
-    serializer_class = UsuarioLoginSerializer
-
-    def delete(self, request):
-        print(request.user)
-        Token.objects.filter(user=request.user).delete()
         return response.Response(status=status.HTTP_200_OK)
