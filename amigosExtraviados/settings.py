@@ -38,7 +38,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     #3
     'rest_framework',
-    'rest_framework.authtoken',
 
     'debug_toolbar',  # debug
     'debug_panel',  # debug
@@ -110,19 +109,21 @@ AUTH_USER_MODEL = 'usuario.Usuario'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
-    ),
+    )
+}
+
+"""
+,
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
     ),
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
     'TEST_REQUEST_RENDERER_CLASSES': (
         'rest_framework.renderers.MultiPartRenderer',
         'rest_framework.renderers.JSONRenderer',
     )
-}
-
+"""
 #Geoposition app ettings
 GEOPOSITION_MAP_WIDGET_HEIGHT = 400
 

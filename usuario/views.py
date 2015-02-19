@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 
 
 from commons.permissions import IsSelf
-from .serializers import UsuarioSerializer, UsuarioPublicoSerializer
+from .serializers import UsuarioRegistroSerializer, UsuarioPublicoSerializer
 
 
 #para obtener la clase que se usa para la autenticacion
@@ -13,9 +13,9 @@ Usuario = get_user_model()
 from commons.permissions import AuthMixin
 
 
-class UsuarioViewSet(AuthMixin, viewsets.ModelViewSet):
+class UsuarioViewSet(viewsets.ModelViewSet):
     """Usuario, clase con los metodos y rutas para el RUD"""
-    serializer_class = UsuarioSerializer
+    serializer_class = UsuarioRegistroSerializer
     queryset = Usuario.objects.all()  # optimizar
     permission_classes = (IsSelf, )
 
@@ -25,7 +25,7 @@ from rest_framework import permissions
 
 class CrearUsuario(viewsets.ModelViewSet):
     """CrearUsuario, clase que se usa solo para crear un usuario"""
-    serializer_class = UsuarioSerializer
+    serializer_class = UsuarioRegistroSerializer
     permission_classes = (permissions.AllowAny, )
 
 
@@ -33,7 +33,7 @@ from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 
 
-class UsuarioPublico(AuthMixin, APIView):
+class UsuarioPublico(APIView):
     """Usuario, clase con los metodos y rutas para mostrar los datos publicos del usuario"""
     permission_classes = (permissions.AllowAny, )
 

@@ -27,5 +27,5 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class AuthMixin:
-    authentication_classes = (authentication.TokenAuthentication,
+    authentication_classes = (#authentication.TokenAuthentication,
                               authentication.SessionAuthentication)

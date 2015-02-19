@@ -9,7 +9,7 @@ urlpatterns = patterns('',
   url(r'^encontrados/$', 'front.views.encontrados', name='encontrados'),
   url(r'^adopciones/$', 'front.views.adopciones', name='adopciones'),
   
-  url(r'^perdidos/(?P<mascota_id>\d+)/$', 'front.views.detail', name='detail'),
-  url(r'^encontrados/(?P<mascota_id>\d+)/$', 'front.views.detail', name='detail'),
-  url(r'^adopciones/(?P<mascota_id>\d+)/$', 'front.views.detail', name='detail'),
+  #url(r'^perdidos/(?P<mascota_id>\d+)/$', 'front.views.detail', name='detail'),
+  #url(r'^encontrados/(?P<mascota_id>\d+)/$', 'front.views.detail', name='detail'),
+  #url(r'^adopciones/(?P<mascota_id>\d+)/$', 'front.views.detail', name='detail'),
   )

@@ -105,6 +105,19 @@ input{
 
 .navbar{
 	margin-top: -50px;
+<<<<<<< HEAD
 	border-radius: 15px;
 }
 
+=======
+	border-radius: 2px;
+}
+
+.btn{
+	border-radius: 5px;
+}
+
+.flex{
+	display: flex;
+}
+>>>>>>> 85738c301ff58a7b631f091456dc8b447068ef9c
