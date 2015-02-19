@@ -5,13 +5,24 @@ var main = function() {
 	});
 
 	$('#up').click(function(){
-		console.log('click')
 		$("body").animate({scrollTop:$('#head').offset().top}, 200);
 		
 	});
 
+	$('#iniciaSesion').click(function(){
+		/*$('.registro').fadeOut();*/
+		$('.registro').toggle();
+		$('.sesion').fadeIn();
+	});
 
-	$(window).scroll(function (event) {
+	$('#iniciaRegistro').click(function(){
+		/*$('.registro').fadeOut();*/
+		$('.sesion').toggle();
+		$('.registro').fadeIn();
+	});
+
+
+	/*$(window).scroll(function (event) {
     var scroll = $(window).scrollTop();
     // Do something
 	    if(scroll >=($('#slide2').offset().top)-50) {
@@ -19,12 +30,11 @@ var main = function() {
 		}else{
 			$('.info').animate({left:'450px'},200);
 		}
-	});
+	});*/
 
 	
 	
 	
 };
-
 
 $(document).ready(main);

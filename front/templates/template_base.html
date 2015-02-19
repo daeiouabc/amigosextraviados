@@ -14,44 +14,36 @@
 	<body>
 
 		<section>
-			<header  class="page-header">
-				<div class="col-md-12"  id="head">
+			<header  class="page-header" >
+				<div class="col-md-12" id="head">
 					<div class="col-md-6">
 						<h1>Amigos Extraviados </h1>
 					</div>
 					<div class="col-md-6">
-						<a type="button" class="btn btn-default pull-right">Salir</a>
+						<!---->
+						<div class="dropdown pull-right">
+						  <a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+						    Explora
+						    <span class="caret"></span>
+						  </a>
+						  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mascotas Perdidas</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mascotas Adoptadas</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mascotas Encontradas</a></li>
+					
+						  </ul>
+						</div>
+
+						<!---->
 					</div>
 				</div>
 			</header>
 
-			<div class="container">
-				<nav  class="navbar navbar-default navbar-static-top" role="navigation">
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul  class="nav navbar-nav">
-							<li>
-								<a href="">
-								 Inicio
-								</a>
-							</li>
-							<li >
-								<a id="cat_perdidos" href="">Mascotas Perdidas</a>
-							</li>
-							<li>
-								<a href="">Mascotas en Adopción</a>
-							</li>
-							<li>
-								<a href="">Mascotas Encontradas</a>
-							</li>
-						</ul>
-					</div>
-				</nav>
+			{% block Navbar %}
+			{% endblock %}
 
-				{% block contenido %}
-				
-		
-				{% endblock %}
-			
+			{% block contenido_Index %}
+			{% endblock %}
 
 	
 

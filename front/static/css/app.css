@@ -56,11 +56,18 @@ input{
 .registro{
 	margin-top: 40px;
 	text-align: center;
+	/*position: absolute;*/
+
 }
 
 .camposR{
 	left: 8%;
 }
+
+.sesion{
+	display: none;
+}
+
 
 .info{
 	margin-top: 200px;
@@ -100,3 +107,4 @@ input{
 	margin-top: -50px;
 	border-radius: 15px;
 }
+
