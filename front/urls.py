@@ -1,8 +1,10 @@
 from django.conf.urls import patterns, url
 
+from .views import Index
+
 urlpatterns = patterns('',
 
-  url(r'^$', 'front.views.index', name='index'),
+  url(r'^$', Index.as_view() , name='index'),
  
   url(r'^inicio/$', 'front.views.inicio', name='inicio'),
   url(r'^perdidos/$', 'front.views.perdidos', name='perdidos'),
