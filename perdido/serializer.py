@@ -13,7 +13,7 @@ from comentario.models import Comentario
 
 
 class PerdidoShortSerializer(serializers.ModelSerializer):
-    """docstring for PerdidoSerializer"""
+    """La minima info sobre una mascota"""
     thumb = serializers.SerializerMethodField()
     comments_count = serializers.SerializerMethodField()
 
