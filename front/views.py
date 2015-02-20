@@ -13,8 +13,12 @@ def inicio(request):
     return render_to_response('inicio.html', context_instance=RequestContext(request))
 
 
+from perdido.form import PerdidoForm
+
+
 def perdidos(request):
-    return render_to_response('perdidos.html', context_instance=RequestContext(request))
+    form = PerdidoForm()
+    return render_to_response('perdidos.html', {'form': form}, context_instance=RequestContext(request))
 
 
 def encontrados(request):
