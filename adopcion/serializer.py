@@ -1,24 +1,24 @@
 from rest_framework import serializers
 from comentario.models import Comentario
 
-from .models import Perdido
+from .models import Adopcion
 
 
-class PerdidoSerializer(serializers.ModelSerializer):
-    """Clase para crear una mascota perdida"""
+class AdopcionSerializer(serializers.ModelSerializer):
+    """Clase para crear una mascota en Adopcion"""
     class Meta:
-        model = Perdido
-        fields = ('nombre', 'especie', 'raza', 'sexo', 'descripcion', 'position', 'photo', 'fechaDesaparicion')
+        model = Adopcion
+        fields = ('nombre', 'especie', 'raza', 'sexo', 'descripcion', 'position', 'photo', 'dirContacto')
 
 
-class PerdidoShortSerializer(serializers.ModelSerializer):
+class AdopcionShortSerializer(serializers.ModelSerializer):
     """La minima info sobre una mascota"""
     thumb = serializers.SerializerMethodField()
     comments_count = serializers.SerializerMethodField()
 
     class Meta:
-        model = Perdido
-        fields = ('id', 'nombre', 'thumb', 'dirDesaparicion', 'encontrado', 'fechaPublicacion', 'comments_count')
+        model = Adopcion
+        fields = ('id', 'nombre', 'thumb', 'dirContacto', 'adoptado', 'fechaPublicacion', 'comments_count')
 
     def get_thumb(self, object):
         try:

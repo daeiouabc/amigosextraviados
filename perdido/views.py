@@ -5,7 +5,7 @@ from .serializer import PerdidoSerializer, PerdidoShortSerializer
 
 
 class PerdidoViewSet(viewsets.ModelViewSet):
-    """docstring for ClassName"""
+    """Clase para Editar, Eliminar"""
     model = Perdido
     queryset = Perdido.objects.all()
     serializer_class = PerdidoSerializer

@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'usuario',
     'front',
     'perdido',
+    'adopcion',
     'comentario',
     'geoposition',
     'notificacion',

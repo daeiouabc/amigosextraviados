@@ -5,6 +5,8 @@ from usuario.urls import routerUsuario
 
 from perdido.urls import routerPerdido
 
+from adopcion.urls import routerAdopcion
+
 from comentario.urls import routerComentario
 
 from notificacion.urls import routerNotificacion
@@ -20,6 +22,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/user/', include(routerUsuario)),
     url(r'^api/perdido/', include(routerPerdido)),
+    url(r'^api/adopcion/', include(routerAdopcion)),
 
     url(r'^api/comment/', include(routerComentario)),
     url(r'^api/inbox/notification/', include(routerNotificacion)),
