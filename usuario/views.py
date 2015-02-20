@@ -1,16 +1,11 @@
 from rest_framework import viewsets, generics
 from rest_framework.response import Response
 
-from django.contrib.auth import get_user_model
-
 
 from commons.permissions import IsSelf
-from .serializers import UsuarioRegistroSerializer, UsuarioPublicoSerializer
+from .serializers import UsuarioRegistroSerializer, UsuarioPublicoSerializer, UsuarioSerializer
 
-
-#para obtener la clase que se usa para la autenticacion
-Usuario = get_user_model()
-from commons.permissions import AuthMixin
+from .models import Usuario
 
 
 class UsuarioViewSet(viewsets.ModelViewSet):
@@ -30,7 +25,6 @@ class CrearUsuario(viewsets.ModelViewSet):
 
 
 from rest_framework.views import APIView
-from django.shortcuts import get_object_or_404
 
 
 class UsuarioPublico(APIView):
@@ -38,6 +32,16 @@ class UsuarioPublico(APIView):
     permission_classes = (permissions.AllowAny, )
 
     def get(self, request, pk):
-        user = get_object_or_404(Usuario, pk=pk)
-        serializer = UsuarioPublicoSerializer(user)
+        user = Usuario.objects.all()
+        serializer = UsuarioPublicoSerializer(user, many=Truem)
+        return Response(serializer.data)
+
+
+class Usuario(APIView):
+    """Usuario, clase para mostar toda la info del usuario que se encuentra autenticado"""
+    permission_classes = (IsSelf, permissions.IsAuthenticated)
+
+    def get(self, request):
+        user = request.user
+        serializer = UsuarioSerializer(user)
         return Response(serializer.data)

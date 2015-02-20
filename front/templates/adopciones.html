@@ -1,7 +1,10 @@
-{% extends 'template_base.html' %}
+{% extends 'template_sessiones.html' %}
 {% block contenido %}
 
-
-hola aqui vienen las mascotas 
-
+<div id="adopciones"></div>
+<script>
+$(document).ready(function(){
+	servicioMascota.getList( "/api/adopcion/near/", 'adopciones' );
+});
+</script>
 {% endblock %}

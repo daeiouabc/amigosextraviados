@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     #3
     'rest_framework',
 
-    'debug_toolbar',  # debug
+    #'debug_toolbar',  # debug
     'debug_panel',  # debug
 
     'user_sessions',  # para las notificaciones

@@ -12,7 +12,7 @@ class PerdidoViewSet(viewsets.ModelViewSet):
 
 
 class CreatePerdido(viewsets.ModelViewSet):
-    """docstring for CreatePerdido"""
+    """Clase para crear una mascota perdida"""
     model = Perdido
     serializer_class = PerdidoSerializer
     permission_classes = (IsAuthenticated, )
@@ -61,7 +61,7 @@ class PerdidoCercanoLista(mixins.ListModelMixin, viewsets.GenericViewSet):
             serializer = self.get_pagination_serializer(page)
         else:
             serializer = self.get_serializer(instance, many=True)
-        return Response(serializer.data)
+        return Response({'perdidos': serializer.data})
 
 """
 class PerdidoLista(mixins.ListModelMixin, viewsets.GenericViewSet):

@@ -3,9 +3,10 @@ from .models import Perdido
 
 
 class PerdidoSerializer(serializers.ModelSerializer):
-    """docstring for PerdidoSerializer"""
+    """Clase para crear una mascota perdida"""
     class Meta:
         model = Perdido
+        fields = ('nombre', 'especie', 'raza', 'sexo', 'descripcion', 'position', 'photo', 'fechaDesaparicion')
 
 
 from comentario.models import Comentario
