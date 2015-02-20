@@ -1,7 +1,27 @@
-{% extends 'template_base_barra.html' %}
+{% extends 'template_sessiones.html' %}
 {% block contenido %}
 
+<div id="perdidos"></div>
 
-hola aqui vienen las mascotas 
+<form id="form-perdido">
+{% csrf_token %}
+<div class="form-group ">
+	<label class="col-sm-2 control-label ">Nombre</label>
+    <div class="col-sm-10">
+    	<input name="nombre" class="form-control" type="text" >
+    	<span class="hide-field-error">Este campo es obligatorio</span>
+    </div>
+</div>
+</form>
+<input id="send" type='submit' value='Publicar' class="btn btn-primary" />
+<script>
+$(document).ready(function(){
+	servicioMascota.getList( "/api/perdido/near/", 'perdidos' );
+});
 
+$("#send").click(function(){
+	servicioMascota.sendMascota("/api/perdido/create", 'form-perdido');
+});
+</script>
 {% endblock %}
+

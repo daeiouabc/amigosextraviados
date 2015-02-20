@@ -22,7 +22,7 @@ class UsuarioManager(BaseUserManager):
 
 class Usuario(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
-    nombre = models.CharField(max_length=55)
+    nombre = models.CharField(max_length=55, blank=True)
     apellido = models.CharField(max_length=55, blank=True)
     direccion = models.CharField(max_length=50, blank=True)
     telefono = models.CharField(max_length=15, blank=True)
