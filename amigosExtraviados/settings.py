@@ -131,10 +131,12 @@ GEOPOSITION_MAP_WIDGET_HEIGHT = 250
 GEOPOSITION_MAP_OPTIONS = {
     'minZoom': 5,
     'maxZoom': 16,
+    'center_on_current': True
 }
 
 GEOPOSITION_MARKER_OPTIONS = {
-    'cursor': 'move'
+    'cursor': 'move',
+    'position_on_current': True
 }
 #end geoposition
 
