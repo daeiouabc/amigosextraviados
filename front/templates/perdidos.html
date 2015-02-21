@@ -12,7 +12,7 @@
 		<!-- Modal -->
 		<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg">
-		    	<form>
+		    	<form id="form-perdido">
 		    		{{ form.media }}
 					{% csrf_token %}
 		    		<div class="modal-content">
@@ -24,26 +24,26 @@
 				        	<!-- campos formulario-->
 			        		<div class="form-group col-md-6">
 			        			<ul class="formulario-reporte">
-									<li>nombre {{ form.nombre }}</li>
-									<li>especie {{ form.especie }}</li>
-									<li>raza {{ form.raza }}</li>
-									<li>sexo{{ form.sexo }}</li>
-									<li>descripcion{{ form.descripcion }}</li>
-									<li>fecha desaparicion{{ form.fechaDesaparicion }}</li>
-									<li>direccion{{ form.dirDesaparicion }}</li>
-									<li>foto{{ form.photo }}</li>
+									<li>{{ form.nombre }}</li>
+									<li>{{ form.especie }}</li>
+									<li>{{ form.raza }}</li>
+									<li>{{ form.sexo }}</li>
+									<li>{{ form.descripcion }}</li>
+									<li>{{ form.dirDesaparicion }}</li>
+									<li>{{ form.photo }}</li>
 								</ul>
 			        		</div>
 			        		<div class="form-group col-md-6">
 			        			<ul class="formulario-reporte">
-			        				<li>Indica la ubicacion{{ form.position }}</li>
+			        				<li>{{ form.position }}</li>
+			        				<li>{{ form.fechaDesaparicion }}</li>
 			        			</ul>
 			        		</div>
 
 		      			</div>
 		      			<div class="modal-footer">
 		        			<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-		        			<button type="button" class="btn btn-default">Reportar</button>
+		        			<button id="send" type="button" class="btn btn-default">Reportar</button>
 		      			</div>
 		    		</div>
 		    	</form>
@@ -57,7 +57,9 @@ $(document).ready(function(){
 });
 
 $("#send").click(function(){
-	servicioMascota.sendMascota("/api/perdido/create", 'form-perdido');
+	$("#id_dirDesaparicion").val($(".geoposition-search > input").val());
+	//servicioMascota.sendMascota("/api/perdido/create", 'form-perdido');
+
 	return false;
 });
 </script>

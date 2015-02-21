@@ -22,7 +22,7 @@ from .filters import PerdidoFilter
 from rest_framework import filters
 
 from rest_framework.response import Response
-#from rest_framework import status
+from rest_framework import permissions
 from django.contrib.auth import get_user_model
 Usuario = get_user_model()
 
@@ -35,6 +35,7 @@ class PerdidoCercanoLista(mixins.ListModelMixin, viewsets.GenericViewSet):
     """Listado de solo lectura de perdidos cercanos a la ubicacion del Usuario, tambien provee filtro por especie"""
     queryset = Perdido.objects.all()
     serializer_class = PerdidoShortSerializer
+    permission_classes = (permissions.AllowAny, )
     filter_class = PerdidoFilter
     filter_backends = (
         filters.DjangoFilterBackend,

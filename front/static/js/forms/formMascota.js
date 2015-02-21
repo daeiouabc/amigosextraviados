@@ -3,4 +3,8 @@ $(document).ready(function(){
 	$("#id_position_1").prop("readonly", true);
 	$("#id_position_0").parent().parent().parent().hide();
 	$("#id_position_1").parent().parent().parent().hide();
+	$(".geoposition-search > input").attr("class", 'form-control');
+	$(".geoposition-search > input").attr("placeholder", '¿Dónde se extravió?');
+	$("#id_dirDesaparicion").hide();
+	checkLocation ();
 });
