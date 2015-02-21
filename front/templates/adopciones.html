@@ -1,7 +1,10 @@
 {% extends 'template_sessiones.html' %}
 {% block contenido %}
 
-<div id="adopciones"></div>
+<div id="adopciones">
+	hola aqui vienen las mascotas  adopcionadas
+
+</div>
 <script>
 $(document).ready(function(){
 	servicioMascota.getList( "/api/adopcion/list/", 'adopciones' );

@@ -11,14 +11,14 @@ var main = function() {
 
 	$('#iniciaSesion').click(function(){
 		/*$('.registro').fadeOut();*/
-		$('.registro').toggle();
-		$('.sesion').fadeIn();
+		$('#registro').toggle();
+		$('#sesion').fadeIn();
 	});
 
 	$('#iniciaRegistro').click(function(){
 		/*$('.registro').fadeOut();*/
-		$('.sesion').toggle();
-		$('.registro').fadeIn();
+		$('#sesion').toggle();
+		$('#registro').fadeIn();
 	});
 
 

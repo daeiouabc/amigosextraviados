@@ -3,96 +3,99 @@
 	
 	<section>
 		<div class="row slide">
-
-			
-			
 			<div class="row" id="slide1">
-				<div class="col-md-4 bienvenido">
-					<div class="registro">
-					<h3>Regístrate</h3>
-					<small>Es muy sencillo</small>
-					<hr>
-						<form  method='post' action=''>
-							<div class="form-group col-md-10 camposR">
-								<div class="form-group">
+				<div class="col-md-12">
+					<div class="col-md-4"></div>
+					<div class="col-md-4 .col-sm-4  bienvenido">
+						<div class="col-md-12" id="registro">
+						<h3>Regístrate</h3>
+						<small>Es muy sencillo</small>
+						<hr>
+							<form  method='post' action=''>
+								<div class="form-group col-md-10 ">
+									<div class="form-group">
 
-									<input  type="email" class="form-control" placeholder="Correo Electrónico" name="email">
+										<input  type="email" class="form-control" placeholder="Correo Electrónico" name="email">
+								
+										<input  type="password" class="form-control" placeholder="Contraseña" name="password">
+								
+										<input  type="password" class="form-control" placeholder="Confirmar Contraseña" name="password">
+									</div>
 							
-									<input  type="password" class="form-control" placeholder="Contraseña" name="password">
-							
-									<input  type="password" class="form-control" placeholder="Confirmar Contraseña" name="password">
+
+									<input type='submit' class="btn btn-default " value='Regístrate'/>	
 								</div>
-						
-
-								<input type='submit' class="btn btn-default " value='Regístrate'/>	
-								<br><br>
-								<a class="pull-left" id="iniciaSesion" href="#">Inicia sesion</a>
-							</div>
-						</form>
-					</div>
-					<div class="sesion">
-					<h3>Inicia Sesión</h3>
-					<small>Es muy rápido</small>
-					<hr>
-						<form  method='post' action=''>
-							<div class="form-group col-md-10 camposR">
-								<div class="form-group ">
-									<input  type="email" class="form-control" placeholder="Correo Electronico" name="email">
+							</form>
+							<a class="pull-left" id="iniciaSesion" href="#">Inicia sesion</a>
+						</div>
+						<div class="col-md-12" id="sesion">
+						<h3>Inicia Sesión</h3>
+						<small>Es muy rápido</small>
+						<hr>
+							<form  method='post' action=''>
+								<div class="form-group col-md-10 ">
+									<div class="form-group ">
+										<input  type="email" class="form-control" placeholder="Correo Electronico" name="email">
+								
+										<input  type="password" class="form-control" placeholder="Contraseña" name="password">
+									</div>
 							
-									<input  type="password" class="form-control" placeholder="Contraseña" name="password">
+									<input type='submit' class="btn btn-default " value='Ingresa'/>	
 								</div>
-						
-								<input type='submit' class="btn btn-default " value='Ingresa'/>	
-								<a class="pull-left" id="iniciaRegistro" href="#">Registráte</a>
-							</div>
-						</form>
-					</div>
+							</form>
+							<a class="pull-left" id="iniciaRegistro" href="#">Registráte</a>
+						</div>
 
-					<div class="col-md-12">
-						<p class="pull-left">Regístrate con:</p><br><br>
-							<span class="fa fa-google-plus-square fa-3x">
-							<span class="fa fa-facebook-square">
-							<span class="fa fa-twitter-square ">
-					</div>
+						<div class="col-md-12 redesSociales">
+							<p class="pull-left">Regístrate con:</p><br><br>
+								<span class="fa fa-google-plus-square fa-3x">
+								<span class="fa fa-facebook-square">
+								<span class="fa fa-twitter-square ">
+						</div>
 
-				</div>
-				<div class="btn-down">
-					<a id="down"> <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>Conoce mas acerca de nosotros</a>	
-				</div>
-				
-			</div>
-			
-				
-		</div>
-		<div class="row slide"  id="slide2">
-		
-			<div class="btn-up col-centered">
-				<a id="up"> <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>Sube</a>	
+					</div>
+					<div class="btn-down">
+						<a id="down">
+							Conoce mas acerca de nosotros<br>
+							<span class="fa fa-angle-double-down fa-4x" aria-hidden="true"></span>
+						</a>	
+					</div>
+				</div>	
 			</div>		
-		
-				
-			<div class="col-md-8">
-				Quienes somos? <br>R/ la mejor plataforma online de rescate del mundo mundial
-				 <br>  
-				<div class="col-md-4 about">
-					<img class=" img-responsive imagen-ayuda" src="{{STATIC_URL}}/img/3.png">
-				</div>
-				<div class="col-md-8  about">
-					<h3>Adopta una Mascota</h3>
-					<p>hola adopta</p> 
-				</div>  
-				<div class="col-md-12"><hr></div>
-				<div class="col-md-8 about">
-					<h3>Encuentra una Mascota</h3>
-					<p>hola como esta la playa bonita</p>
-				</div>
-				<div class="col-md-4 about">
-					<img class=" img-responsive imagen-ayuda" src="{{STATIC_URL}}/img/4.png">
-				</div>
+		</div>
 
-			</div>
-			<div class="col-md-4 info" >
-				mas chachara 
+		<div class="row slide"  id="slide2">
+			<div class="col-md-12">
+				<div class="btn-up col-centered">
+					<a id="up"> 
+						<span class="fa fa-angle-double-up fa-4x" aria-hidden="true"></span>
+					</a>	
+				</div>		
+			
+					
+				<div class="col-md-8">
+					Quienes somos? <br>R/ la mejor plataforma online de rescate del mundo mundial
+					 <br>  
+					<div class="col-md-4 about">
+						<img class=" img-responsive imagen-ayuda" src="{{STATIC_URL}}/img/3.png">
+					</div>
+					<div class="col-md-8  about">
+						<h3>Adopta una Mascota</h3>
+						<p>hola adopta</p> 
+					</div>  
+					<div class="col-md-12"><hr></div>
+					<div class="col-md-8 about">
+						<h3>Encuentra una Mascota</h3>
+						<p>hola como esta la playa bonita</p>
+					</div>
+					<div class="col-md-4 about">
+						<img class=" img-responsive imagen-ayuda" src="{{STATIC_URL}}/img/4.png">
+					</div>
+
+				</div>
+				<div class="col-md-4 info" >
+					mas chachara 
+				</div>
 			</div>
 		</div>
 
