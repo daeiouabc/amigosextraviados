@@ -10,7 +10,7 @@
 		</button>
 
 		<!-- Modal -->
-		<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div id="modal-form-perdidos" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg">
 		    	<form id="form-perdido">
 		    		{{ form.media }}
@@ -59,7 +59,7 @@ $(document).ready(function(){
 $("#send").click(function(){
 	$("#id_dirDesaparicion").val($(".geoposition-search > input").val());
 	//servicioMascota.sendMascota("/api/perdido/create", 'form-perdido');
-
+		$( document ).trigger( "loadGMap" );
 	return false;
 });
 </script>

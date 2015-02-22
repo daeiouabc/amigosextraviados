@@ -30,5 +30,5 @@ class PerdidoForm(ModelForm):
     class Media:
         js = ('js/forms/formMascota.js', )
         css = {
-            'all': ('layout.css',)
+            #'all': ('layout.css',)
         }
