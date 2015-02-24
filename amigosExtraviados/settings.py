@@ -36,6 +36,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     #'django.contrib.messages', se desactiva para las notificaciones
     'django.contrib.staticfiles',
+    #  para comprimi css y js
+    'pipeline',
+    #  para app offline
+    'manifesto',
     #3
     'rest_framework',
 
@@ -67,6 +71,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #  pipeline
+    'pipeline.middleware.MinifyHTMLMiddleware',
 )
 
 ROOT_URLCONF = 'amigosExtraviados.urls'
@@ -158,3 +164,53 @@ THUMBNAIL_EXTENSION = 'jpg'
 
 #mascotas setting
 DEFAULT_MASCOTA_IMAGE_SETTING = dict(size=(500, 500), sharpen=True)
+
+
+# Pipeline
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+
+STATICFILES_DIRS = (
+    ('pipeline', os.path.join(BASE_DIR, 'front/static/')),
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',
+)
+
+PIPELINE_CSS = {
+    'base': {
+        'source_filenames': (
+            'css/app.css',
+        ),
+        'output_filename': 'style.css',
+    },
+}
+
+
+PIPELINE_JS = {
+    'base': {
+        'source_filenames': (
+            'js/app.js',
+        ),
+        'output_filename': 'scripts.js'
+    }
+}
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
+
+
+PIPELINE_DISABLE_WRAPPER = True
+
+MEDIA_ROOT = 'uploads/'
+MEDIA_URL = "/media/"
+
+
+MANIFESTO_EXCLUDED_MANIFESTS = (
+    #'randomapp.manifest.WrongManifest',
+    'pipeline.manifest.PipelineManifest',
+    #'admin.manifest.PipelineManifest',
+)

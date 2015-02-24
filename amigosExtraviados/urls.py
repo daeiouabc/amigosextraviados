@@ -14,6 +14,7 @@ import notifications
 
 from autenticacion.urls import routerToken
 
+from django.conf import settings
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'amigosExtraviados.views.home', name='home'),
@@ -33,7 +34,10 @@ urlpatterns = patterns('',
 
     #urls temporales para el login y el logout
     #url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url('^inbox/notifications/', include(notifications.urls)),
+    url(r'^inbox/notifications/', include(notifications.urls)),
+
+    #ruta para los estaticos
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 
 )
 

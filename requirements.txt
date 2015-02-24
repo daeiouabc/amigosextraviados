@@ -1,16 +1,21 @@
 Django==1.7.1
 Pillow==2.7.0
 PyJWT==0.4.1
+defusedxml==0.4.1
 django-appconf==0.6
 django-debug-panel==0.8.0
 django-debug-toolbar==1.2.2
 django-filter==0.9.1
--e git+https://github.com/rizotas/django-geoposition.git#egg=django_geoposition-origin
+-e git+https://github.com/rizotas/django-geoposition.git@993ebd1b14b6768bfda30eb5d5e1d8ed3f4e7bb9#egg=django_geoposition-master
 django-model-utils==2.2
--e git+https://github.com/rizotas/django-notifications.git#egg=django_notifications_hq-origin
+-e git+https://github.com/rizotas/django-notifications.git@5d6d1e1d4cf17e76367a78b4f73f6e6e4f432999#egg=django_notifications_hq-master
+django-pipeline==1.4.6
 django-user-sessions==1.1.0
 djangorestframework==3.0.2
-djangorestframework-jwt==1.2.0
 easy-thumbnails==2.2
+futures==2.2.0
+manifesto==0.5
+py==1.4.26
+pytest==2.6.4
 six==1.9.0
 sqlparse==0.1.14

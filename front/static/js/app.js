@@ -1,4 +1,7 @@
 var main = function() {
+	$('html, body').animate({
+    	scrollTop: $("#registro").offset().top-50}, 1000);
+
 
 	$('#down').click(function(){
 		$("body").animate({scrollTop:$('#slide2').offset().top}, 200);
@@ -9,16 +12,25 @@ var main = function() {
 		
 	});
 
-	$('#iniciaSesion').click(function(){
+	$('#iniciaSesion').click(function(e){
+		e.preventDefault();
 		/*$('.registro').fadeOut();*/
 		$('#registro').toggle();
 		$('#sesion').fadeIn();
+		var offset = $("#sesion").offset();
+		$('html, body').stop().animate({
+    		scrollTop: offset.top-50}, 600);
+
 	});
 
-	$('#iniciaRegistro').click(function(){
+	$('#iniciaRegistro').click(function(e){
+		e.preventDefault();
 		/*$('.registro').fadeOut();*/
 		$('#sesion').toggle();
 		$('#registro').fadeIn();
+		var offset = $("#registro").offset();
+		$('html, body').stop().animate({
+    		scrollTop: offset.top-50}, 600);
 	});
 
 

@@ -1,14 +1,16 @@
+{% load pipeline %}
 <!DOCTYPE html>
+<html lang="es" manifest="{% url 'front:cache_manifest' %}">
 	<head>
 		<meta charset='utf-8'>
 		<title>Amigos Extraviados</title>
 		<link rel="stylesheet" href="{{STATIC_URL}}libs/bootstrap/bootstrap.min.css">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="{{STATIC_URL}}libs/bootstrap/font-awesome.min.css">
-		<link rel="stylesheet" href="{{STATIC_URL}}css/app.css">
+		{% stylesheet 'base' %}
 		<script src="{{STATIC_URL}}libs/jquery/jquery.min.js" ></script>
 		<script src="{{STATIC_URL}}libs/bootstrap/bootstrap.min.js" ></script>
-		<script src="{{STATIC_URL}}js/app.js" ></script>
+		{% javascript 'base' %}
 		{% block head %}
 			
 		{% endblock head %}
