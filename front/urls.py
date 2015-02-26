@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
 
-from .views import Index
+from .views import Index, Offline
 
 from manifesto.views import ManifestView
 
@@ -8,6 +8,7 @@ from manifesto.views import ManifestView
 urlpatterns = patterns(
     '',
     url(r'^$', Index.as_view(), name='index'),
+    url(r'^offline$', Offline.as_view(), name='offline'),
     url(r'^manifest\.appcache$', ManifestView.as_view(), name="cache_manifest"),
     url(r'^inicio/$', 'front.views.inicio', name='inicio'),
     url(r'^perdidos/$', 'front.views.perdidos', name='perdidos'),

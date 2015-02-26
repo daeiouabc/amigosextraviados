@@ -31,3 +31,7 @@ def adopciones(request):
 
 def Detallemascota(request):
     return render_to_response('Detallemascota.html', context_instance=RequestContext(request))
+
+
+class Offline(TemplateView):
+    template_name = "offline.html"
