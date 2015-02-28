@@ -1,8 +1,7 @@
 {% extends 'template_sessiones.html' %}
-	{% block contenido %}
-
-
-		<div id="perdidos"></div>
+{% block contenido %}
+		
+<div id="perdidos"></div>
 
 		<!-- Button trigger modal -->
 		<button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">
@@ -52,16 +51,17 @@
 
 <script>
 
-$(document).ready(function(){
-	servicioMascota.getList( "/api/perdido/near/", 'perdidos' );
-});
+	$(document).ready(function(){
+		servicioMascota.getList( "/api/perdido/near/", $('#perdidos') );
+	});
 
-$("#send").click(function(){
-	$("#id_dirDesaparicion").val($(".geoposition-search > input").val());
-	//servicioMascota.sendMascota("/api/perdido/create", 'form-perdido');
-		$( document ).trigger( "loadGMap" );
-	return false;
-});
-</script>
+	$("#send").click(function(){
+		$("#id_dirDesaparicion").val($(".geoposition-search > input").val());
+		
+		console.log("Event");
+		servicioMascota.sendMascota("/api/perdido/create", $('#form-perdido') );
+		return false;
+	});
+	</script>
 {% endblock %}
 

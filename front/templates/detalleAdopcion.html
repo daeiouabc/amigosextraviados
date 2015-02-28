@@ -1,0 +1,12 @@
+{% extends 'template_base_barra.html' %}
+{% block contenido %}
+
+<label>Nombre: </label> {{mascota.nombre}}<br>
+<img src="{{MEDIA_URL}}{{ mascota.photo}}">
+<label>Especie: </label> {{mascota.especie}}<br>
+<label>Raza: </label> {{mascota.raza}}<br>
+<label>Sexo: </label> {{mascota.sexo}}<br>
+<label>Lugar: </label> {{mascota.dirContacto}}<br>
+<label>Descripción:</label> {{mascota.descripcion}}<br>
+
+{% endblock contenido%}

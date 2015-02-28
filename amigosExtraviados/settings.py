@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     #  para comprimi css y js
     'pipeline',
     #  para app offline
-    'manifesto',
+#    'manifesto',
     #3
     'rest_framework',
 
@@ -163,7 +163,7 @@ THUMBNAIL_EXTENSION = 'jpg'
 
 
 #mascotas setting
-DEFAULT_MASCOTA_IMAGE_SETTING = dict(size=(500, 500), sharpen=True)
+DEFAULT_MASCOTA_IMAGE_SETTING = dict(size=(500, 500), sharpen=False,)
 
 
 # Pipeline
@@ -205,7 +205,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
 
 PIPELINE_DISABLE_WRAPPER = True
 
-MEDIA_ROOT = 'uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads/')
 MEDIA_URL = "/media/"
 
 

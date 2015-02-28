@@ -1,13 +1,22 @@
 {% extends 'template_sessiones.html' %}
 {% block contenido %}
+<div id="adopciones"></div>
 
-<div id="adopciones">
-	hola aqui vienen las mascotas  adopcionadas
+<ul>
+<li>{{ form.nombre }}</li>
+<li>{{ form.especie }}</li>
+<li>{{ form.raza }}</li>
+<li>{{ form.sexo }}</li>
+<li>{{ form.descripcion }}</li>
+<li>{{ form.photo }}</li>
+<li>{{ form.dirContacto }}</li>
+<li>{{ form.position }}</li>
+</ul>
 
-</div>
 <script>
 $(document).ready(function(){
-	servicioMascota.getList( "/api/adopcion/list/", 'adopciones' );
+	servicioMascota.getList( "/api/adopcion/list/", $('#adopciones') );
 });
 </script>
 {% endblock %}
+

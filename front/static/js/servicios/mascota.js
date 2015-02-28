@@ -10,14 +10,16 @@ servicioMascota.setCSRFToken = function(){
   });
 };
 
-servicioMascota.getList = function(url, div){
+servicioMascota.getList = function(url, contenedor){
   //div que va a contener la lista de perdidos
-  mascota.contenedor = div;
+  mascota.contenedor = contenedor;
+  console.log(mascota.contenedor)
 
   //se avisa de que se esta cargando la lista
   mascota.showLoadingList();
 
 
+  
   $.getJSON( url, function(response) {
     mascota.json = response;
      

@@ -1,7 +1,4 @@
 var main = function() {
-	$('html, body').animate({
-    	scrollTop: $("#registro").offset().top-50}, 1000);
-
 
 	$('#down').click(function(){
 		$("body").animate({scrollTop:$('#slide2').offset().top}, 200);

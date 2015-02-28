@@ -5,19 +5,19 @@ var mascota = {};
 
 /*Informa al usuario de que se está esperando a que se reciba la lista de mascotas*/
 mascota.showLoadingList = function(){
-	  	console.log("Loading...");
-	  	$("#"+this.contenedor).append('<div id="msg-loading">Loading</div>');
+	  	console.log("MSG:Loading...");
+	  	this.contenedor.append('<div id="msg-loading">Loading</div>');
 };
 /*Oculta lo anterior*/
 mascota.hideLoadingList = function(){
-	  	console.log("Loaded");
+	  	console.log("MSG:Loaded");
 	  	$("#msg-loading").remove();
 };
 
 /*Muestra un error al usuario, en caso de que haya habido un error obteniendo las mascotas*/
 mascota.showErrorList = function(code){
-	  	console.log("Error");
-	  	$("#"+this.contenedor).append('<div id="msg-error">Error '+code+'</div>');
+	  	console.log("MSG:Error");
+	  	this.contenedor.append('<div id="msg-error">Error '+code+'</div>');
 };
 mascota.hideErrorList = function(){
 		$("#msg-error").remove();  	
@@ -25,20 +25,45 @@ mascota.hideErrorList = function(){
 
 /*Renderiza la lista de mascotas obtenidas*/
 mascota.showMascotas = function(){
-	  	console.log("Los muestro");	  	
+	  	console.log("ACCION:Muestro mascotas");	  	
 	  	var html = '';
 
 	  	//si la lista es de perdidos
 	  	if(this.json.perdidos)
 	  	{
 	  		$.each( this.json.perdidos, function( key, val ) {
-    			html += '<div id="perd-'+val.id+'" value='+val.id+'><p>'+val.nombre+'</p><img src="'+val.thumb+'"/><p>'+val.comments_count+' comentarios</p></div>';
+	  			html += '<div class="perdido" data-id="'+val.id+'">';
+	  			html += '<a href="'+window.location.pathname + val.id+'">';
+    			html += '<p>'+val.nombre+'</p>';
+    			html += '<img src="'+val.thumb+'"/>';
+    			html += '</a>';
+    			html += '<p>'+val.dirDesaparicion+'</p>';
+    			html += '<p>'+jQuery.timeago(val.fechaPublicacion)+'</p>';
+    			html += '<p>'+val.comments_count+' comentarios</p>';
+    			html += '</div>';
+ 			
+  			});
+
+	  	}
+	  	//si la lista es de adoptados
+	  	if(this.json.adopciones)
+	  	{
+	  		$.each( this.json.adopciones, function( key, val ) {
+    			html += '<div class="adopcion" data-id="'+val.id+'">';
+    			html += '<a href="'+window.location.pathname + val.id+'">';
+    			html += '<p>'+val.nombre+'</p>';
+    			html += '<img src="'+val.thumb+'"/>';
+    			html += '</a>';
+    			html += '<p>'+val.dirContacto+'</p>';
+    			html += '<p>'+jQuery.timeago(val.fechaPublicacion)+'</p>';
+    			html += '<p>'+val.comments_count+' comentarios</p>';
+    			html += '</div>';
   			});
 
 	  	}
 	  	
 
-  		$("#"+this.contenedor).append(html);
+  		this.contenedor.append(html);
 };
 
 
@@ -47,12 +72,12 @@ mascota.showMascotas = function(){
 
 /*obtiene un json de los valores del formulario*/
 mascota.getDataForm = function(){
-		return $("#"+this.formulario).serialize();
+		return this.formulario.serialize();
 };
 
 /*Informa al usuario de que se está enviando la mascota*/
 mascota.showSending = function(){
-		console.log("Sending...");
+		console.log("MSG:Sending...");
 };
 /*Oculta el mensaje anterior*/
 mascota.hideSending = function(){
@@ -61,7 +86,7 @@ mascota.hideSending = function(){
 
 /*Muestra un error al usuario, en caso de que haya habido un error enviando la mascota*/
 mascota.showErrorSending = function(code, details){
-		console.log("Error sending");
+		console.log("MSG:Error sending");
 		console.log(code);
 		console.log(details);
 };

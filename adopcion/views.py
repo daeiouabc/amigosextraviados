@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.mixins import ListModelMixin
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from .models import Adopcion
 from .serializer import AdopcionSerializer, AdopcionShortSerializer
@@ -24,6 +24,7 @@ class AdopcionLista(ListModelMixin, viewsets.GenericViewSet):
     #Listado de solo lectura de mascotas en adopcion
     queryset = Adopcion.objects.all()
     serializer_class = AdopcionShortSerializer
+    permission_classes = (AllowAny, )
 
     def list(self, request, *args, **kwargs):
         query = Adopcion.objects.all()

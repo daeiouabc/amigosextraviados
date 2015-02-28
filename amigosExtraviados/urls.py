@@ -38,6 +38,8 @@ urlpatterns = patterns('',
 
     #ruta para los estaticos
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+
 
 )
 
