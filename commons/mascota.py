@@ -15,6 +15,7 @@ from django.conf import settings
 
 def content_file_name(instance, filename):
     out_file = str(instance.id) + "".join([c for c in str(timezone.now()) if re.match(r'\w', c)])
+    out_file = out_file + str("."+filename.split(".")[-1])
     return '/'.join(['fotos', str(instance.autor.id), out_file])
 
 

@@ -43,12 +43,13 @@ INSTALLED_APPS = (
     #3
     'rest_framework',
 
-    #'debug_toolbar',  # debug
+    'debug_toolbar',  # debug
     'debug_panel',  # debug
 
     'user_sessions',  # para las notificaciones
     'notifications',  # app para las notificaciones
     'easy_thumbnails',  # app para la creacion de thumbnails
+    'easy_thumbnails.optimize',  # para optimizar las imagenes
     #
     #'commons',
     'usuario',
@@ -71,7 +72,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #  pipeline
+    #  pipeline minificar el html
     'pipeline.middleware.MinifyHTMLMiddleware',
 )
 
@@ -153,14 +154,20 @@ SESSION_ENGINE = 'user_sessions.backends.db'  # para las notificaciones
 #easy tumbnails
 THUMBNAIL_ALIASES = {
     '': {
-        'mini': {'size': (50, 50), 'crop': True},
-        'medio': {'size': (250, 250), 'crop': True},
+        'mini': {'size': (50, 50), 'crop': False},
+        'medio': {'size': (250, 250), 'crop': False},
     },
 }
 
 #THUMBNAIL_BASEDIR = 'thum'
 THUMBNAIL_EXTENSION = 'jpg'
+THUMBNAIL_NAMER = 'easy_thumbnails.namers.hashed'
 
+THUMBNAIL_OPTIMIZE_COMMAND = {
+    'png': '/usr/bin/optipng {filename}',
+    'gif': '/usr/bin/optipng {filename}',
+    'jpeg': '/usr/bin/jpegoptim {filename}'
+}
 
 #mascotas setting
 DEFAULT_MASCOTA_IMAGE_SETTING = dict(size=(500, 500), sharpen=False,)
