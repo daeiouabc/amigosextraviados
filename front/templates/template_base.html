@@ -11,10 +11,21 @@
 		<script src="{{STATIC_URL}}libs/jquery/jquery.min.js" ></script>
 		<script src="{{STATIC_URL}}libs/bootstrap/bootstrap.min.js" ></script>
 		<script src="{{STATIC_URL}}libs/jquery/jquery.timeago.js" ></script>
+		<script src="{{STATIC_URL}}libs/jquery/jquery.cookie.js" ></script>
 		{% javascript 'base' %}
 		{% block head %}
 			
 		{% endblock head %}
+
+		{% if user.is_authenticated %}
+				
+				<h2>hola</h2>
+				{{ user.nombre }}
+				<a id = "logout" href="">Cerrar sesión</a>
+			{% else %}
+			  <a href=""> Iniciar Sesion</a>
+
+	    	{% endif %}
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	</head>
@@ -62,6 +73,31 @@
 					Hola soy el footer 
 				</div>
 			</footer>
+
+			<script type="text/javascript">
+
+				$("#formulario_registro").submit(function(){
+	    			sendDatosRegistro();
+	    			
+	    			return false;
+	    	
+				});
+
+				$("#formulario_login").submit(function(){
+	    			sendDatosLogin();
+	    			
+	    			return false;
+	    	
+				});
+
+				$("#logout").click(function(){
+					logout();
+					return false;
+				});
+		</script>
+
+		<script src="{{STATIC_URL}}js/user.js" ></script>
+
 	</section>
 			
 

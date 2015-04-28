@@ -11,16 +11,16 @@
 						<h3>Regístrate</h3>
 						<small>Es muy sencillo</small>
 						<hr>
-							<form  method='post' action='#' role="form">
+							<form id="formulario_registro" method='post' action='' role="form">{% csrf_token %}
 						<div class="row">
 								<div class="form-group col-md-10 ">
 									<div class="form-group">
 
-										<input  type="email" class="form-control" placeholder="Correo Electrónico" name="email">
+										<input  id="emailRegistro" type="email" class="form-control" placeholder="Correo Electrónico" name="email">
 								
-										<input  type="password" class="form-control" placeholder="Contraseña" name="password">
+										<input  id="pass1Registro" type="password" class="form-control" placeholder="Contraseña" name="password">
 								
-										<input  type="password" class="form-control" placeholder="Confirmar Contraseña" name="password">
+										<input  id="pass2Registro"type="password" class="form-control" placeholder="Confirmar Contraseña" name="password">
 									</div>
 									<div class="row">
 										<div class="col-md-6 col-xs-7 pull-left">
@@ -47,7 +47,7 @@
 						<h3>Inicia Sesión</h3>
 						<small>Es muy rápido</small>
 						<hr>
-							<form  method='post' action=''>
+							<form id="formulario_login" method='post' action=''>{% csrf_token %}
 								<div class="form-group col-md-10 ">
 									<div class="form-group ">
 										<input  type="email" class="form-control" placeholder="Correo Electronico" name="email">
