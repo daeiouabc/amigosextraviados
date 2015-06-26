@@ -9,7 +9,7 @@ class UsuarioRegistroSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Usuario
-        fields = ('id', 'email', 'is_active', 'password')
+        fields = ('id', 'email', 'nombre','is_active', 'password')
         read_only_fields = ('id', 'is_active')
         #write_only_fields = ('password')#pending deprecation
         extra_kwargs = {'password': {'write_only': True}}

@@ -17,11 +17,14 @@ User = get_user_model()
 
 from rest_framework import permissions
 
+from django.contrib.messages.views import SuccessMessageMixin
 
-class CrearUsuario(viewsets.ModelViewSet):
+
+class CrearUsuario(viewsets.ModelViewSet,SuccessMessageMixin):
     """CrearUsuario, clase que se usa solo para crear un usuario"""
     serializer_class = UsuarioRegistroSerializer
     permission_classes = (permissions.AllowAny, )
+    
 
 
 class UsuarioViewSet(viewsets.ModelViewSet):
